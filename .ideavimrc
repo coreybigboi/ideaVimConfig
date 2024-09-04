@@ -104,6 +104,10 @@ let g:WhichKeyDesc_errors = "<leader>e Error navigation"
 let g:WhichKeyDesc_errors_next = "<leader>en Go to next error in solution"
 let g:WhichKeyDesc_errors_prev = "<leader>ep Go to previous error in solution"
 
+let g:WhichKeyDesc_open_terminal = "<leader>t Open terminal"
+
+let g:WhichKeyDesc_show_hover_info = "<leader>i Show hover info"
+
 
 "" Key mappings
 "" ========================================================
@@ -203,3 +207,9 @@ map <leader>vb <Action>(Git.Branches)
 " Errors
 map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
 map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
+
+" Terminal 
+map <leader>t <Action>(ActivateTerminalToolWindow)
+
+" Hover Info
+map <leader>i <Action>(ShowHoverInfo)
