@@ -43,7 +43,7 @@ let g:WhichKey_SortOrder = "by_key_prefix_first"
 
 let g:WhichKeyDesc_leader = "<leader> Leader key"
 
-let g:WhichKeyDesc_leader = "<leader>x Open file explorer"
+let g:WhichKeyDesc_leader = "<leader>n Open file explorer"
 
 let g:WhichKeyDesc_comment = "<leader>c Comment line"
 
@@ -149,7 +149,7 @@ inoremap <C-k> <Action>(PopupMenu-selectPrev)
 map <leader>c <action>(CommentByLineComment)
 
 " Open NERDTree (use q to exit)
-map <leader>x :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
 
 " Folding
 map <leader>zc :action CollapseAllRegions<CR>
