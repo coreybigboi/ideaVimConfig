@@ -4,7 +4,7 @@
 "" Base Settings
 "" ========================================================
 
-set scrolloff=10
+st scrolloff=10
 set relativenumber
 set showmode
 set showcmd
@@ -43,7 +43,7 @@ let g:WhichKey_SortOrder = "by_key_prefix_first"
 
 let g:WhichKeyDesc_leader = "<leader> Leader key"
 
-let g:WhichKeyDesc_leader = "<leader>n Open file explorer"
+let g:WhichKeyDesc_leader = "<leader>e Open file explorer"
 
 let g:WhichKeyDesc_comment = "<leader>c Comment line"
 
@@ -110,6 +110,9 @@ let g:WhichKeyDesc_open_terminal = "<leader>t Open terminal"
 " Centre cursor on page up / down
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
+
+" Clear search highlighting when pressing ESC
+nnoremap <ESC> :nohlsearch<CR><ESC>
 
 " Tab navigation
 nnoremap <A-n> :tabnext<CR>
