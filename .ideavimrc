@@ -68,13 +68,11 @@ let g:WhichKeyDesc_action_search = "<leader>as Open command modal"
 
 let g:WhichKeyDesc_file_quickLook = "<leader><leader> Recent files"
 
-let g:WhichKeyDesc_file_nav = "<leader>f File navigation"
-let g:WhichKeyDesc_file_nav_goto_file = "<leader>ff Go to file"
-let g:WhichKeyDesc_file_nav_goto_content = "<leader>fc Search for file content"
-let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>fr Show recent files"
-let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>fl Show recent locations"
-let g:WhichKeyDesc_file_nav_new_file = "<leader>fs Create new scratch file"
-let g:WhichKeyDesc_file_nav_find_all = "<leader>fa Find all in current file"
+let g:WhichKeyDesc_file_nav = "<leader>s Search Files"
+let g:WhichKeyDesc_file_nav_goto_file = "<leader>sf [s]earch [f]iles"
+let g:WhichKeyDesc_file_nav_goto_content = "<leader>sc [s]earch [c]ontent"
+let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>sr [s]earch [r]ecent files"
+let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>sl [s]earch recent [l]ocations"
 
 let g:WhichKeyDesc_close_tab = "<leader>q Close active tab"
 
@@ -105,9 +103,6 @@ let g:WhichKeyDesc_errors_next = "<leader>en Go to next error in solution"
 let g:WhichKeyDesc_errors_prev = "<leader>ep Go to previous error in solution"
 
 let g:WhichKeyDesc_open_terminal = "<leader>t Open terminal"
-
-let g:WhichKeyDesc_show_hover_info = "<leader>i Show hover info"
-
 
 "" Key mappings
 "" ========================================================
@@ -170,14 +165,11 @@ map <leader>df <action>(ToggleFullScreen)
 map <leader>am <action>(ShowIntentionActions)
 map <leader>as <action>(SearchEverywhere)
 
-" File navigation
-map <leader>ff <action>(GotoFile)
-map <leader>fr <action>(RecentFiles)
-map <leader>fc <action>(FindInPath)
-map <leader><leader> <Action>(RecentFiles)
-map <leader>fl <action>(RecentLocations)
-map <leader>fs <action>(NewScratchFile)
-map <leader>fa :action Find<CR>
+" Search
+map <leader>sf <action>(GotoFile)
+map <leader>sr <action>(RecentFiles)
+map <leader>sc <action>(FindInPath)
+map <leader>sl <action>(RecentLocations)
 
 " Close active tab
 map <leader>q <action>(CloseContent)
@@ -208,8 +200,8 @@ map <leader>vb <Action>(Git.Branches)
 map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
 map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
 
-" Terminal 
+" Terminal
 map <leader>t <Action>(ActivateTerminalToolWindow)
 
 " Hover Info
-map <leader>i <Action>(ShowHoverInfo)
+map K <Action>(ShowHoverInfo)
