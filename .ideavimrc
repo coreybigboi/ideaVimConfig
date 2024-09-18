@@ -4,7 +4,7 @@
 "" Base Settings
 "" ========================================================
 
-st scrolloff=10
+set scrolloff=10
 set relativenumber
 set showmode
 set showcmd
