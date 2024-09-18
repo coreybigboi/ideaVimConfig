@@ -104,6 +104,8 @@ let g:WhichKeyDesc_errors_prev = "<leader>ep Go to previous error in solution"
 
 let g:WhichKeyDesc_open_terminal = "<leader>t Open terminal"
 
+let g:WhichKeyDesc_close_tool_windows = "<leader><leader> Close all tool windows"
+
 "" Key mappings
 "" ========================================================
 
@@ -208,3 +210,6 @@ map <leader>t <Action>(ActivateTerminalToolWindow)
 
 " Hover Info
 map K <Action>(ShowHoverInfo)
+
+" Close all tool windows
+map <leader><leader> <Action>(HideAllWindows)
