@@ -106,6 +106,8 @@ let g:WhichKeyDesc_open_terminal = "<leader>t Open terminal"
 
 let g:WhichKeyDesc_close_tool_windows = "<leader><leader> Close all tool windows"
 
+let g:WhichKeyDesc_close_tabs = "<leader>x Close all tabs except active"
+
 "" Key mappings
 "" ========================================================
 
@@ -213,3 +215,6 @@ map K <Action>(ShowHoverInfo)
 
 " Close all tool windows
 map <leader><leader> <Action>(HideAllWindows)
+
+" Close all tabs except active
+map <leader>x <Action>(CloseAllEditorsButActive)
