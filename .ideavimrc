@@ -45,7 +45,7 @@ let g:WhichKeyDesc_leader = "<leader> Leader key"
 
 let g:WhichKeyDesc_leader = "<leader>e Open file explorer"
 
-let g:WhichKeyDesc_comment = "<leader>c Comment line"
+let g:WhichKeyDesc_comment = "<leader>/ Comment line"
 
 let g:WhichKeyDesc_fold = "<leader>z Folding"
 let g:WhichKeyDesc_fold_all = "<leader>zc Fold all regions"
@@ -63,8 +63,7 @@ let g:WhichKeyDesc_df_mode = "<leader>dd Toggle Distraction-Free mode"
 let g:WhichKeyDesc_fullscreen = "<leader>df Toggle full screen"
 
 let g:WhichKeyDesc_action= "<leader>a Actions"
-let g:WhichKeyDesc_action_context_menu = "<leader>am Open context menu"
-let g:WhichKeyDesc_action_search = "<leader>as Open command modal"
+let g:WhichKeyDesc_action_context_menu = "<leader>a Open [a]ction menu"
 
 let g:WhichKeyDesc_file_quickLook = "<leader><leader> Recent files"
 
@@ -108,6 +107,8 @@ let g:WhichKeyDesc_close_tool_windows = "<leader><leader> Close all tool windows
 
 let g:WhichKeyDesc_close_tabs = "<leader>x Close all tabs except active"
 
+let g:WhichKeyDesc_ideavimrc = "<leader>; Go to .ideavimrc"
+
 "" Key mappings
 "" ========================================================
 
@@ -148,7 +149,7 @@ inoremap <C-k> <Action>(PopupMenu-selectPrev)
 "" ========================================================
 
 " Comment lines
-map <leader>c <action>(CommentByLineComment)
+map <leader>/ <action>(CommentByLineComment)
 
 " Open NERDTree (use q to exit)
 map <leader>n :NERDTreeToggle<CR>
@@ -169,8 +170,7 @@ map <leader>dz <action>(ToggleZenMode)
 map <leader>df <action>(ToggleFullScreen)
 
 " Actions
-map <leader>am <action>(ShowIntentionActions)
-map <leader>as <action>(SearchEverywhere)
+map <leader>a <action>(ShowIntentionActions)
 
 " Search
 map <leader>sf <action>(GotoFile)
@@ -218,3 +218,6 @@ map <leader><leader> <Action>(HideAllWindows)
 
 " Close all tabs except active
 map <leader>x <Action>(CloseAllEditorsButActive)
+
+" Go to .ideavimrc
+map <leader>; :e ~/.ideavimrc<CR>
