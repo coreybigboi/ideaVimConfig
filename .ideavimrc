@@ -12,15 +12,18 @@ set showcmd
 "" Leader key timeout
 set notimeout
 
-set smartcase
-set incsearch
-set hlsearch
-
 "" Remove sound when invalid input
 set visualbell
 
-" Use system clipboard
+"" Use system clipboard
 set clipboard+=unnamed
+
+"" Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+set ignorecase
+set smartcase
+
+"" Decrease mapped sequence wait time - display which-key popup sooner
+set timeoutlen=300
 
 "" Map leader key to space-bar
 let mapleader = " "
@@ -43,7 +46,7 @@ let g:WhichKey_SortOrder = "by_key_prefix_first"
 
 let g:WhichKeyDesc_leader = "<leader> Leader key"
 
-let g:WhichKeyDesc_leader = "<leader>e Open file explorer"
+let g:WhichKeyDesc_leader = "<leader>n Open file explorer"
 
 let g:WhichKeyDesc_comment = "<leader>/ Comment line"
 
