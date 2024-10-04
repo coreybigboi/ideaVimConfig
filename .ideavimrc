@@ -4,7 +4,235 @@
 "" Base Settings
 "" ========================================================
 
+set scrolloff=10"" .ideavimrc - Corey Barr 2024
+"" Inspired by https://www.cyberwizard.io/posts/the-ultimate-ideavim-setup/
+
+"" Base Settings
+"" ========================================================
+
 set scrolloff=10
+set relativenumber
+set showmode
+set showcmd
+
+"" Leader key timeout
+set notimeout
+
+"" Remove sound when invalid input
+set visualbell
+
+"" Use system clipboard
+set clipboard+=unnamed
+
+"" Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+"" Decrease mapped sequence wait time - display which-key popup sooner
+set timeoutlen=300
+
+"" Map leader key to space-bar
+let mapleader = " "
+
+
+"" Plugin Settings
+"" ========================================================
+
+set surround
+set highlightedyank
+set sneak
+set nerdtree
+
+" Which-key settings
+set which-key
+let g:WhichKey_FontSize = 16
+let g:WhichKey_CommandColor = "#41ead4"
+let g:WhichKey_PrefixColor = "#e6b400"
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+
+let g:WhichKeyDesc_leader = "<leader> Leader key"
+
+let g:WhichKeyDesc_leader = "<leader>n Open file explorer"
+
+let g:WhichKeyDesc_comment = "<leader>/ Comment line"
+
+let g:WhichKeyDesc_fold = "<leader>z Folding"
+let g:WhichKeyDesc_fold_all = "<leader>zc Fold all regions"
+let g:WhichKeyDesc_unfold_all = "<leader>zo Unfold all regions"
+
+let g:WhichKeyDesc_window = "<leader>w Window splits"
+let g:WhichKeyDesc_window_split_vertically = "<leader>wv Split vertically"
+let g:WhichKeyDesc_window_split_horizontally = "<leader>wh Split horizontally"
+let g:WhichKeyDesc_window_split_unsplit = "<leader>wu Unsplit"
+let g:WhichKeyDesc_window_split_move_editor = "<leader>wm Move editor to opposite tab group"
+
+let g:WhichKeyDesc_display = "<leader>d Display options"
+let g:WhichKeyDesc_zen_mode = "<leader>dz Toggle Zen mode"
+let g:WhichKeyDesc_df_mode = "<leader>dd Toggle Distraction-Free mode"
+let g:WhichKeyDesc_fullscreen = "<leader>df Toggle full screen"
+
+let g:WhichKeyDesc_action= "<leader>a Actions"
+let g:WhichKeyDesc_action_context_menu = "<leader>a Open [a]ction menu"
+
+let g:WhichKeyDesc_file_quickLook = "<leader><leader> Recent files"
+
+let g:WhichKeyDesc_file_nav = "<leader>s Search Files"
+let g:WhichKeyDesc_file_nav_goto_file = "<leader>sf [s]earch [f]iles"
+let g:WhichKeyDesc_file_nav_goto_content = "<leader>sc [s]earch [c]ontent"
+let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>sr [s]earch [r]ecent files"
+let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>sl [s]earch recent [l]ocations"
+
+let g:WhichKeyDesc_close_tab = "<leader>q Close active tab"
+
+let g:WhichKeyDesc_refactoring = "<leader>r Refactoring menu"
+let g:WhichKeyDesc_refactoring_rename = "<leader>rn Rename element"
+let g:WhichKeyDesc_refactoring_method = "<leader>rm Extract method"
+let g:WhichKeyDesc_refactoring_variable = "<leader>rv Introduce variable"
+let g:WhichKeyDesc_refactoring_field = "<leader>rf Introduce field"
+let g:WhichKeyDesc_refactoring_signature = "<leader>rs Change signature"
+let g:WhichKeyDesc_refactoring_all = "<leader>rr Open refactorings list"
+
+let g:WhichKeyDesc_goto = "<leader>g Go to X"
+let g:WhichKeyDesc_goto_declaration = "<leader>gd Go to Definition"
+let g:WhichKeyDesc_goto_type_declaration = "<leader>gy Go to Type Definition"
+let g:WhichKeyDesc_goto_implementation = "<leader>gi Go to Implementation"
+let g:WhichKeyDesc_goto_usages = "<leader>gu Go to Usages"
+let g:WhichKeyDesc_goto_test = "<leader>gt Go to Test"
+let g:WhichKeyDesc_goto_back = "<leader>gb Go Back"
+let g:WhichKeyDesc_goto_forward = "<leader>gf Go Forward"
+
+let g:WhichKeyDesc_git = "<leader>v Git operations"
+let g:WhichKeyDesc_git_commit = "<leader>vc Open Git commit dialog"
+let g:WhichKeyDesc_git_status = "<leader>vs Open Git status dialog"
+let g:WhichKeyDesc_git_branches = "<leader>vb Open Git branches list"
+
+let g:WhichKeyDesc_errors = "<leader>e Error navigation"
+let g:WhichKeyDesc_errors_next = "<leader>en Go to next error in solution"
+let g:WhichKeyDesc_errors_prev = "<leader>ep Go to previous error in solution"
+
+let g:WhichKeyDesc_open_terminal = "<leader>t Open terminal"
+
+let g:WhichKeyDesc_close_tool_windows = "<leader><leader> Close all tool windows"
+
+let g:WhichKeyDesc_close_tabs = "<leader>x Close all tabs except active"
+
+let g:WhichKeyDesc_ideavimrc = "<leader>; Go to .ideavimrc"
+
+"" Key mappings
+"" ========================================================
+
+" Centre cursor on page up / down
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+" Clear search highlighting when pressing ESC
+nnoremap <ESC> :nohlsearch<CR><ESC>
+
+" Tab navigation
+nnoremap <A-n> :tabnext<CR>
+nnoremap <A-p> :tabprev<CR>
+
+" Pane navigation
+nnoremap <A-h> <C-w>h
+nnoremap <A-l> <C-w>l
+nnoremap <A-k> <C-w>k
+nnoremap <A-j> <C-w>j
+
+" Jump between methods
+nnoremap [[ <Action>(MethodUp)
+nnoremap ]] <Action>(MethodDown)
+
+" Easy visual indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" Execute macro saved in 'q' register
+nnoremap qj @q
+
+" Popup navigation
+inoremap <C-j> <Action>(PopupMenu-selectNext)
+inoremap <C-k> <Action>(PopupMenu-selectPrev)
+
+
+"" Leader commands
+"" ========================================================
+
+" Comment lines
+map <leader>/ <action>(CommentByLineComment)
+
+" Open NERDTree (use q to exit)
+map <leader>n :NERDTreeToggle<CR>
+
+" Folding
+map <leader>zc :action CollapseAllRegions<CR>
+map <leader>zo :action ExpandAllRegions<CR>
+
+" Window splits
+map <leader>wv <Action>(SplitVertically)
+map <leader>ws <Action>(SplitHorizontally)
+map <leader>wu <Action>(Unsplit)
+map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
+
+" Display options
+map <leader>dd <action>(ToggleDistractionFreeMode)
+map <leader>dz <action>(ToggleZenMode)
+map <leader>df <action>(ToggleFullScreen)
+
+" Actions
+map <leader>a <action>(ShowIntentionActions)
+
+" Search
+map <leader>sf <action>(GotoFile)
+map <leader>sr <action>(RecentFiles)
+map <leader>sc <action>(FindInPath)
+map <leader>sl <action>(RecentLocations)
+
+" Close active tab
+map <leader>q <action>(CloseContent)
+
+" Refactoring
+map <leader>rn <Action>(RenameElement)
+map <leader>rm <Action>(ExtractMethod)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+
+" Go to code
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gy <Action>(GotoTypeDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap <leader>gu <Action>(ShowUsages)
+nmap <leader>gt <Action>(GotoTest)
+nmap <leader>gf <Action>(Back)
+nmap <leader>gb <Action>(Forward)
+
+" Git windows
+map <leader>vc <Action>(CheckinProject)
+map <leader>vs <Action>(ActivateVersionControlToolWindow)
+map <leader>vb <Action>(Git.Branches)
+
+" Errors
+map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
+map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
+
+" Terminal
+map <leader>t <Action>(ActivateTerminalToolWindow)
+
+" Hover Info
+map K <Action>(ShowHoverInfo)
+
+" Close all tool windows
+map <leader><leader> <Action>(HideAllWindows)
+
+" Close all tabs except active
+map <leader>x <Action>(CloseAllEditorsButActive)
+
+" Go to .ideavimrc
+map <leader>; :e ~/.ideavimrc<CR>
+
 set relativenumber
 set showmode
 set showcmd
