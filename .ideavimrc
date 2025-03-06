@@ -4,12 +4,6 @@
 "" Base Settings
 "" ========================================================
 
-set scrolloff=10"" .ideavimrc - Corey Barr 2024
-"" Inspired by https://www.cyberwizard.io/posts/the-ultimate-ideavim-setup/
-
-"" Base Settings
-"" ========================================================
-
 set scrolloff=10
 set relativenumber
 set showmode
