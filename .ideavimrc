@@ -1,4 +1,4 @@
-"" .ideavimrc - Corey Barr 2024
+"" .ideavimrc - Corey Barr 2025
 "" Inspired by https://www.cyberwizard.io/posts/the-ultimate-ideavim-setup/
 
 "" Base Settings
@@ -14,9 +14,6 @@ set notimeout
 
 "" Remove sound when invalid input
 set visualbell
-
-"" Use system clipboard
-set clipboard+=unnamed
 
 "" Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 set ignorecase
@@ -216,7 +213,7 @@ map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
 map <leader>t <Action>(ActivateTerminalToolWindow)
 
 " Hover Info
-map K <Action>(ShowHoverInfo)
+map I <Action>(ShowHoverInfo)
 
 " Close all tool windows
 map <leader><leader> <Action>(HideAllWindows)
@@ -369,6 +366,13 @@ nnoremap qj @q
 inoremap <C-j> <Action>(PopupMenu-selectNext)
 inoremap <C-k> <Action>(PopupMenu-selectPrev)
 
+" Hover Info
+map I <Action>(ShowHoverInfo)
+
+" Errors
+nnoremap <silent> [e :action ReSharperGotoPrevErrorInSolution<CR>
+nnoremap <silent> ]e :action ReSharperGotoNextErrorInSolution<CR>
+
 
 "" Leader commands
 "" ========================================================
@@ -403,9 +407,6 @@ map <leader>sr <action>(RecentFiles)
 map <leader>sc <action>(FindInPath)
 map <leader>sl <action>(RecentLocations)
 
-" Close active tab
-map <leader>q <action>(CloseContent)
-
 " Refactoring
 map <leader>rn <Action>(RenameElement)
 map <leader>rm <Action>(ExtractMethod)
@@ -428,21 +429,25 @@ map <leader>vc <Action>(CheckinProject)
 map <leader>vs <Action>(ActivateVersionControlToolWindow)
 map <leader>vb <Action>(Git.Branches)
 
-" Errors
-map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
-map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
-
 " Terminal
 map <leader>t <Action>(ActivateTerminalToolWindow)
-
-" Hover Info
-map K <Action>(ShowHoverInfo)
 
 " Close all tool windows
 map <leader><leader> <Action>(HideAllWindows)
 
+" Close active tab
+map <leader>x <Action>(CloseContent)
+
 " Close all tabs except active
-map <leader>x <Action>(CloseAllEditorsButActive)
+map <leader>X <Action>(CloseAllEditorsButActive)
+
+" Use leader key + y to copy to system clipboard
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+
+" Use leader key + p to paste from system clipboard
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
 
 " Go to .ideavimrc
 map <leader>; :e ~/.ideavimrc<CR>
