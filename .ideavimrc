@@ -367,7 +367,7 @@ inoremap <C-j> <Action>(PopupMenu-selectNext)
 inoremap <C-k> <Action>(PopupMenu-selectPrev)
 
 " Hover Info
-map I <Action>(ShowHoverInfo)
+map K <Action>(ShowHoverInfo)
 
 " Errors
 nnoremap <silent> [e :action ReSharperGotoPrevErrorInSolution<CR>
