@@ -213,7 +213,7 @@ map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
 map <leader>t <Action>(ActivateTerminalToolWindow)
 
 " Hover Info
-map I <Action>(ShowHoverInfo)
+map K <Action>(ShowHoverInfo)
 
 " Close all tool windows
 map <leader><leader> <Action>(HideAllWindows)
