@@ -8,9 +8,6 @@ set relativenumber
 set showmode
 set showcmd
 
-" Leader key timeout
-set notimeout
-
 " Remove sound when invalid input
 set visualbell
 
@@ -23,45 +20,109 @@ set hlsearch
 " Map leader key to space-bar
 let mapleader = " "
 
+" Leader key timeout
+set notimeout
+
 " Use system clipboard
 set clipboard+=unnamedplus
 
 " ========================================================
 " Plugin Settings (IdeaVim loads plugins automatically)
 " ========================================================
+set surround
+set highlightedyank
+set sneak
+
+" Which-key: prefix descriptors (clean, unique, consistent)
+" Core Which-key settings
 set which-key
 let g:WhichKey_FontSize = 16
 let g:WhichKey_CommandColor = "#41ead4"
 let g:WhichKey_PrefixColor = "#e6b400"
 let g:WhichKey_SortOrder = "by_key_prefix_first"
 
-" Which-key descriptions (unique names)
-let g:WhichKeyDesc_leader_root = "<leader> Leader key"
-let g:WhichKeyDesc_leader_n = "<leader>n Open Project Tool Window"
-let g:WhichKeyDesc_comment = "<leader>/ Comment line"
-let g:WhichKeyDesc_fold_all = "<leader>zc Fold all regions"
-let g:WhichKeyDesc_unfold_all = "<leader>zo Unfold all regions"
-let g:WhichKeyDesc_window_split_vertically = "<leader>wv Split vertically"
-let g:WhichKeyDesc_window_split_horizontally = "<leader>ws Split horizontally"
-let g:WhichKeyDesc_window_split_unsplit = "<leader>wu Unsplit"
-let g:WhichKeyDesc_window_split_move_editor = "<leader>wm Move editor to opposite tab group"
-let g:WhichKeyDesc_display_zen = "<leader>dz Toggle Zen mode"
-let g:WhichKeyDesc_display_df = "<leader>dd Toggle Distraction-Free mode"
-let g:WhichKeyDesc_display_fullscreen = "<leader>df Toggle full screen"
-let g:WhichKeyDesc_action_context_menu = "<leader>a Open action menu"
-let g:WhichKeyDesc_file_nav_goto_file = "<leader>sf Search files"
-let g:WhichKeyDesc_file_nav_goto_content = "<leader>sc Search content"
-let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>sr Recent files"
-let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>sl Recent locations"
-let g:WhichKeyDesc_refactoring_rename = "<leader>rn Rename element"
-let g:WhichKeyDesc_git_commit = "<leader>vc Git commit"
-let g:WhichKeyDesc_git_status = "<leader>vs Git status"
-let g:WhichKeyDesc_git_branches = "<leader>vb Git branches"
-let g:WhichKeyDesc_errors_next = "<leader>en Next error"
-let g:WhichKeyDesc_errors_prev = "<leader>ep Previous error"
-let g:WhichKeyDesc_terminal = "<leader>t Open terminal"
-let g:WhichKeyDesc_close_tool_windows = "<leader><leader> Close all tool windows"
-let g:WhichKeyDesc_ideavimrc = "<leader>; Edit .ideavimrc"
+" Root-level descriptors
+let g:WhichKeyDesc_leader_root            = "<leader> Leader menu"
+let g:WhichKeyDesc_leader_leader          = "<leader><leader> Hide tool windows"
+let g:WhichKeyDesc_leader_edit_rc         = "<leader>; Edit .ideavimrc"
+let g:WhichKeyDesc_leader_comment         = "<leader>/ Comment line"
+let g:WhichKeyDesc_leader_project         = "<leader>n Project tool window"
+let g:WhichKeyDesc_leader_terminal        = "<leader>t Terminal"
+
+" Display / layout modes
+let g:WhichKeyDesc_display_group          = "<leader>d Display modes"
+let g:WhichKeyDesc_display_df             = "<leader>dd Distraction-free mode"
+let g:WhichKeyDesc_display_zen            = "<leader>dz Zen mode"
+let g:WhichKeyDesc_display_fullscreen     = "<leader>df Full screen"
+
+" Window / splits prefix
+let g:WhichKeyDesc_window_group           = "<leader>w Window / splits"
+let g:WhichKeyDesc_window_split_vert      = "<leader>wv Split vertically"
+let g:WhichKeyDesc_window_split_horiz     = "<leader>ws Split horizontally"
+let g:WhichKeyDesc_window_unsplit         = "<leader>wu Unsplit window"
+let g:WhichKeyDesc_window_move_group      = "<leader>wm Move editor to other tab group"
+
+" Folding prefix
+let g:WhichKeyDesc_fold_group             = "<leader>z Folding"
+let g:WhichKeyDesc_fold_collapse_all      = "<leader>zc Collapse all regions"
+let g:WhichKeyDesc_fold_expand_all        = "<leader>zo Expand all regions"
+
+" Search/navigation prefix
+let g:WhichKeyDesc_search_group           = "<leader>s Search / navigate"
+let g:WhichKeyDesc_search_files           = "<leader>sf Search files"
+let g:WhichKeyDesc_search_content         = "<leader>sc Search in path (content)"
+let g:WhichKeyDesc_search_recent_files    = "<leader>sr Recent files"
+let g:WhichKeyDesc_search_recent_locations= "<leader>sl Recent locations"
+
+" Actions (intentions)
+let g:WhichKeyDesc_action_group           = "<leader>a Actions / intentions"
+let g:WhichKeyDesc_action_context_menu    = "<leader>a Show intention actions"
+
+" Refactoring prefix
+let g:WhichKeyDesc_refactor_group         = "<leader>r Refactor"
+let g:WhichKeyDesc_refactor_rename        = "<leader>rn Rename element"
+let g:WhichKeyDesc_refactor_extract_method= "<leader>rm Extract method"
+let g:WhichKeyDesc_refactor_intro_var     = "<leader>rv Introduce variable"
+let g:WhichKeyDesc_refactor_intro_field   = "<leader>rf Introduce field"
+let g:WhichKeyDesc_refactor_signature     = "<leader>rs Change signature"
+let g:WhichKeyDesc_refactor_all           = "<leader>rr Refactorings quick list"
+
+" Go-to prefix
+let g:WhichKeyDesc_goto_group             = "<leader>g Go to…"
+let g:WhichKeyDesc_goto_decl              = "<leader>gd Go to declaration"
+let g:WhichKeyDesc_goto_type              = "<leader>gy Go to type declaration"
+let g:WhichKeyDesc_goto_impl              = "<leader>gi Go to implementation"
+let g:WhichKeyDesc_goto_usages            = "<leader>gu Show usages"
+let g:WhichKeyDesc_goto_test              = "<leader>gt Go to test"
+let g:WhichKeyDesc_goto_back              = "<leader>gf Back"
+let g:WhichKeyDesc_goto_forward           = "<leader>gb Forward"
+
+" Git prefix
+let g:WhichKeyDesc_git_group              = "<leader>v Git"
+let g:WhichKeyDesc_git_commit             = "<leader>vc Commit / Check in"
+let g:WhichKeyDesc_git_status             = "<leader>vs Version control tool window"
+let g:WhichKeyDesc_git_branches           = "<leader>vb Git branches"
+
+" Errors prefix
+let g:WhichKeyDesc_errors_group           = "<leader>e Errors / inspections"
+let g:WhichKeyDesc_errors_next            = "<leader>en Next error in solution"
+let g:WhichKeyDesc_errors_prev            = "<leader>ep Previous error in solution"
+
+" Harpoon-style bookmarks (optional)
+let g:WhichKeyDesc_bookmarks_group        = "<leader>h Bookmarks"
+let g:WhichKeyDesc_bookmark_toggle_mn     = "<leader>a Toggle bookmark with mnemonic"
+let g:WhichKeyDesc_bookmark_toggle        = "<leader>m Toggle bookmark"
+let g:WhichKeyDesc_bookmark_popup         = "<leader>h Show bookmarks"
+let g:WhichKeyDesc_bookmark_1             = "<leader>1 Go to bookmark 1 (0)"
+let g:WhichKeyDesc_bookmark_2             = "<leader>2 Go to bookmark 2 (1)"
+let g:WhichKeyDesc_bookmark_3             = "<leader>3 Go to bookmark 3 (2)"
+let g:WhichKeyDesc_bookmark_4             = "<leader>4 Go to bookmark 4 (3)"
+let g:WhichKeyDesc_bookmark_5             = "<leader>5 Go to bookmark 5 (4)"
+let g:WhichKeyDesc_bookmark_6             = "<leader>6 Go to bookmark 6 (5)"
+let g:WhichKeyDesc_bookmark_7             = "<leader>7 Go to bookmark 7 (6)"
+let g:WhichKeyDesc_bookmark_8             = "<leader>8 Go to bookmark 8 (7)"
+let g:WhichKeyDesc_bookmark_9             = "<leader>9 Go to bookmark 9 (8)"
+let g:WhichKeyDesc_bookmark_0             = "<leader>0 Go to bookmark 0 (9)"
 
 " ========================================================
 " Key mappings
