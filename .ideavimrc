@@ -113,16 +113,6 @@ let g:WhichKeyDesc_bookmarks_group        = "<leader>h Bookmarks"
 let g:WhichKeyDesc_bookmark_toggle_mn     = "<leader>a Toggle bookmark with mnemonic"
 let g:WhichKeyDesc_bookmark_toggle        = "<leader>m Toggle bookmark"
 let g:WhichKeyDesc_bookmark_popup         = "<leader>h Show bookmarks"
-let g:WhichKeyDesc_bookmark_1             = "<leader>1 Go to bookmark 1 (0)"
-let g:WhichKeyDesc_bookmark_2             = "<leader>2 Go to bookmark 2 (1)"
-let g:WhichKeyDesc_bookmark_3             = "<leader>3 Go to bookmark 3 (2)"
-let g:WhichKeyDesc_bookmark_4             = "<leader>4 Go to bookmark 4 (3)"
-let g:WhichKeyDesc_bookmark_5             = "<leader>5 Go to bookmark 5 (4)"
-let g:WhichKeyDesc_bookmark_6             = "<leader>6 Go to bookmark 6 (5)"
-let g:WhichKeyDesc_bookmark_7             = "<leader>7 Go to bookmark 7 (6)"
-let g:WhichKeyDesc_bookmark_8             = "<leader>8 Go to bookmark 8 (7)"
-let g:WhichKeyDesc_bookmark_9             = "<leader>9 Go to bookmark 9 (8)"
-let g:WhichKeyDesc_bookmark_0             = "<leader>0 Go to bookmark 0 (9)"
 
 " ========================================================
 " Key mappings
@@ -234,13 +224,8 @@ nnoremap <leader>; :e ~/.ideavimrc<CR>
 nnoremap <leader>a :action ToggleBookmarkWithMnemonic<CR>
 nnoremap <leader>m :action ToggleBookmark<CR>
 nnoremap <leader>h :action ShowBookmarks<CR>
-nnoremap <leader>1 :action GotoBookmark1<CR>
-nnoremap <leader>2 :action GotoBookmark2<CR>
-nnoremap <leader>3 :action GotoBookmark3<CR>
-nnoremap <leader>4 :action GotoBookmark4<CR>
-nnoremap <leader>5 :action GotoBookmark5<CR>
-nnoremap <leader>6 :action GotoBookmark6<CR>
-nnoremap <leader>7 :action GotoBookmark7<CR>
-nnoremap <leader>8 :action GotoBookmark8<CR>
-nnoremap <leader>9 :action GotoBookmark9<CR>
-nnoremap <leader>0 :action GotoBookmark10<CR>
+nnoremap <A-a> :action GotoBookmark1<CR>
+nnoremap <A-s> :action GotoBookmark2<CR>
+nnoremap <A-d> :action GotoBookmark3<CR>
+nnoremap <A-f> :action GotoBookmark4<CR>
+nnoremap <A-g> :action GotoBookmark5<CR>
